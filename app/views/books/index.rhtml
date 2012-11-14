@@ -1,0 +1,15 @@
+<h1>Books</h1>
+
+Search: <input type="text" id="search_form" name="search" />
+
+<img id="spinner" src="/images/indicator.gif" style="display: none;" />  
+
+<div id="results"></div>
+
+<%= observe_field 'search_form',
+  :frequency => 0.5, 
+  :update => 'results',
+  :url => { :controller => 'books', :action=> 'get_results' },
+  :with => "'search_text=' + escape(value)",
+  :loading => "document.getElementById('spinner').style.display='inline'",
+  :loaded => "document.getElementById('spinner').style.display='none'" %>

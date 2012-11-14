@@ -1,0 +1,12 @@
+<% if !attachment.id.nil? %>
+<li id="attachment_<%=attachment.id %>">
+<a href="<%=attachment.url %>">
+<%=attachment.name %>
+</a>
+(<%=attachment.file_size/1.kilobyte %>KB)
+#only needed if in edit action
+<% if action_name == "edit" %>
+<%= link_to "Remove", asset_path(:id => attachment), :method => :delete, :confirm => "Are you sure you want to delete " + attachment.name + "?", :remote => true, :class => 'remove_file' %>
+<% end %>
+</li>
+<% end %>

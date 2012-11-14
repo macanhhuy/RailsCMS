@@ -1,0 +1,83 @@
+
+#START:layout
+#START:main
+#START:cart
+#START:currency
+#START:checkout
+#START:flash
+vi:
+
+#END:cart
+#END:checkout
+#END:flash
+#END:main
+#END:layout
+  number:
+    currency:
+      format:
+        unit:      "VND"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format:    "%u&nbsp;%n"
+#END:currency
+
+#START:layout
+
+  layouts:
+    header:
+      title:       "Nhà sách"
+      home:        "Trang chủ"
+      questions:   "Questions"
+      news:        "News"
+      contact:     "Contact"
+      orders:     "Mua hàng"
+      products:     "Sản phẩm"
+      users:     "Người dùng"
+    application:
+      title:       "Nhà sách"
+      home:        "Trang chủ"
+      questions:   "Questions"
+      news:        "News"
+      contact:     "Contact"
+      orders:     "Mua hàng"
+      products:     "Sản phẩm"
+      users:     "Người dùng"
+    footer:
+      about: "Về chúng tôi"  
+      contact: "Liên hệ"
+      news: "Tin tức"
+#END:layout
+
+#START:cart
+  carts:
+    cart:
+      title:       "Giỏ hàng"
+      empty:       "Giỏ hàng rỗng"
+      checkout:    "Thanh toán"
+      total: "Tổng"
+#END:cart
+
+#START:main
+  store:
+    index:
+      title_html:  "Sản phẩm"
+      add_html:    "Thêm vào giỏ"
+#END:main
+
+#START:checkout
+  orders:
+    new:
+      legend:       "Please Enter Your Details"
+    form:
+      name:         "Name"
+      address_html: "Address"
+      email:        "E-mail"
+      pay_type:     "Pay with"
+      pay_prompt_html: "Select a payment method"
+      submit:       "Place Order"
+#END:checkout
+
+#START:flash
+  thanks:          "Thank you for your order"
+#END:flash

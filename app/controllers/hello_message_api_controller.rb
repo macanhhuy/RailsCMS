@@ -1,0 +1,2 @@
+class HelloMessageApiController < ApplicationController
+end

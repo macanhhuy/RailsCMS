@@ -1,0 +1,9 @@
+<% if @books %>
+  <ul>
+    <% for book in @books %>
+      <li>    
+        <%= h(book.title) %>
+      </li>   
+    <% end %>
+  </ul>
+<% end %>

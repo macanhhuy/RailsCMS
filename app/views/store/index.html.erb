@@ -1,0 +1,21 @@
+<% if notice %>
+<p id="notice" class="alert alert-error"><%= notice %></p> 
+<% end %>
+<div id="cart" style="width: 250px;float: right;">
+				<%= render @cart %>
+			</div>
+
+<div id="content">
+<h1><%= t('.title_html') %></h1>
+<% @products.each do |product| %>
+<div class="entry">
+<%= image_tag(product.image_url, :class => 'thumbnail', :style => "width:80px;float: left;margin-right: 20px;") %>
+ <h3><%= product.title %></h3>
+<%= truncate(strip_tags(product.description),
+:length => 80) %> <div class="price_line">
+<span class="price"><%= number_to_currency(product.price) %></span>
+<%= button_to t('.add_html'), line_items_path(:product_id => product), :remote => true, :class=>'btn btn-primary'  %>
+</div>
+</div>
+<% end %>
+</div>

@@ -1,0 +1,12 @@
+<% unless cart.line_items.empty? %>
+<legend><%= t('.title')%></legend> <table class="table table-bordered">
+          <%= render(cart.line_items) %>
+<tr class="total_line">
+<td colspan="2"><%= t('.total')%></td>
+<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+          </tr>
+        </table>
+        <%= button_to t(".checkout"), new_order_path, :method => :get, :class => 'btn btn-warning' %>
+        <%= button_to t('.empty'), cart, :method => :delete,
+            :confirm => 'Are you sure?', :class => 'btn btn-inverse' %>
+<% end %>

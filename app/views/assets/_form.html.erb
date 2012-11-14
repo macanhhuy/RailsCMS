@@ -1,0 +1,17 @@
+<div id="attachment_fields">
+<% if @attachable.assets.count >= Asset::Max_Attachments %>
+<input id="newfile_data" type="file" disabled />
+<% else %>
+<input id="newfile_data" type="file" />
+<% end %>
+</div>
+#the list of pending attachments
+<p>Pending Attachments: (Max of <%= Asset::Max_Attachments %> each under <%= Asset::Max_Attachment_Size/1.megabyte%>MB)</p>
+<div id="attachment_list">
+<ul id="pending_files"></ul>
+</div>
+#the list of already attached files (required for edit form only)
+<p>Attached Files:</p>
+<div id="attachment_list">
+<%= render :partial => "attachment", :collection => @attachable.assets %>
+</div>
