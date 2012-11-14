@@ -23,7 +23,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Products" do
           table_for Product.order('id desc').limit(10) do
             column("Title")   {|product| link_to(product.title,  admin_product_path(product))    } 
-            column("Image"){|product| link_to(image_tag(product.image_url), admin_product_path(product)) } 
+            column("Image"){|product| link_to(image_tag(product.image_url,:class => "prod_image",:style => "width: 80px"), admin_product_path(product)) } 
             column("Price")   {|product| number_to_currency product.price  } 
           end
          
