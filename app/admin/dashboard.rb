@@ -1,14 +1,49 @@
 ActiveAdmin.register_page "Dashboard" do
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
-
+  
+  action_item do
+      link_to "View Site", "/"
+  end
+      
   content :title => proc{ I18n.t("active_admin.dashboard") } do
-    div :class => "blank_slate_container", :id => "dashboard_default_message" do
-      span :class => "blank_slate" do
-        span "Welcome to Active Admin. This is the default dashboard page."
-        small "To add dashboard sections, checkout 'app/admin/dashboards.rb'"
+    columns do
+
+      column do
+        panel "Recent Orders" do
+          table_for Order.order('id desc').limit(10) do
+            column("Name")   {|order| link_to(order.name, admin_order_path(order))     } 
+            column("Email"){|order| order.email } 
+            column("Paytype")   {|order| status_tag(order.pay_type)} 
+          end
+        end
       end
-    end
+
+      column do
+        panel "Recent Products" do
+          table_for Product.order('id desc').limit(10) do
+            column("Title")   {|product| link_to(product.title,  admin_product_path(product))    } 
+            column("Image"){|product| link_to(image_tag(product.image_url), admin_product_path(product)) } 
+            column("Price")   {|product| number_to_currency product.price  } 
+          end
+         
+        end
+        
+         panel "Recent Articles" do
+          table_for Article.order('id desc').limit(10) do
+            column("Title")   {|article| article.title     } 
+            column("Body"){|article| article.body.html_safe } 
+           end
+         
+        end
+      end
+      column do
+        panel "Recent Comments" do
+          
+        end
+      end
+
+    end # columns
 
     # Here is an example of a simple dashboard with columns and panels.
     #
