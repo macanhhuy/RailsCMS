@@ -5,12 +5,16 @@ ActiveAdmin.register_page "Dashboard" do
   action_item do
       link_to "View Site", "/"
   end
-      
+     
   content :title => proc{ I18n.t("active_admin.dashboard") } do
+    
+    
     columns do
-
+      
       column do
+        
         panel "Recent Orders" do
+          
           table_for Order.order('id desc').limit(10) do
             column("Name")   {|order| link_to(order.name, admin_order_path(order))     } 
             column("Email"){|order| order.email } 
@@ -38,7 +42,8 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
       column do
-        panel "Recent Comments" do
+        panel "Charts" do
+          render('/admin/charts', :model => 'orders')
           
         end
       end

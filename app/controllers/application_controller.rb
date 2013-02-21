@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   #before_filter :authorize
   protect_from_forgery
   require 'active_admin_views_pages_base.rb'
+  require 'gchart'
   private
     def current_cart
       Cart.find(session[:cart_id])

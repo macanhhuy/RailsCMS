@@ -8,6 +8,13 @@ ActiveAdmin.setup do |config|
   config.site_title = "My CMS"
   # To load a javascript file:
   config.register_javascript 'ckeditor/init.js'
+  config.register_javascript 'highcharts.js'
+  config.register_javascript 'highcharts/highcharts-more.js?body=1'
+  config.register_javascript 'adapters/mootools.js?body=1'
+  config.register_javascript 'modules/canvas-tools.js?body=1'
+  config.register_javascript 'themes/dark-blue.js?body=1'
+  config.register_javascript 'highcharts.js'
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

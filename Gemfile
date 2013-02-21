@@ -9,6 +9,8 @@ gem 'activeadmin'
 gem 'mysql2'
 gem "babosa"
 gem 'webster'
+gem "googlecharts", :require => "gchart"
+gem "highcharts-rails", "~> 2.3.0"
 gem 'kaminari'
 gem 'tinymce-rails'
 gem "tinymce-rails-imageupload", "~> 3.5.6.3"

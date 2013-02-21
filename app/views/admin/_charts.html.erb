@@ -1,0 +1,73 @@
+<%
+	count = {}
+	Order.all.each do |order|
+		count[order.pay_type] ||= 0
+		count[order.pay_type] +=1
+	end
+	total = Order.count
+    
+%>
+<% 
+data = count.collect do |type, number|
+     number.to_i
+    	end
+labels = count.collect do |type, number|
+     "#{type}"
+    	end    	
+%>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
+<script type="text/javascript">
+var chart1; // globally available
+$(document).ready(function() {
+       chart1 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+            title: {
+                text: 'Payment Types'
+            },
+            subtitle: {
+                text: 'Order'
+            },
+            xAxis: {
+                categories: <%=raw labels%>
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Payment Type Count'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 100,
+                y: 70,
+                floating: true,
+                shadow: true
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.x +': '+ this.y +' times';
+                }
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+                series: [{
+                name: 'Payment',
+                data: <%=data%>
+    
+            }]
+      });
+   });</script>
+   <div id="container"></div>

@@ -13,13 +13,28 @@ ActiveAdmin.register Order do
    
     form do |f|
       f.inputs "Details" do
-        f.input :title
+        
+        f.select :pay_type, Order::PAYMENT_TYPES,
+                  :prompt => 'Select a payment method'
         #f.input :image, :as => :file
-       
+      
       end
-      f.inputs "Content" do
-        f.input :body, :input_html => {:class => "ckeditor"}
+       f.inputs "Status" do
+        
+        f.select :status, Order::STATUS,
+                  :prompt => 'Status'
+        #f.input :image, :as => :file
+      
+      end
+     f.inputs "Details2" do
+        
+   
+       f.input :name
+
+        f.input :address
+        f.input :email
       end
       f.buttons
+
     end
 end

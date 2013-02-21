@@ -9,4 +9,10 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+  def hello(name)
+    "Hello #{name}"
+  end
+  def pie_chart_for_solutions(text)
+   
+  end
 end
